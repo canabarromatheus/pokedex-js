@@ -11,9 +11,11 @@ function gerarNumeroAleatorio() {
 }
 
 function mostrarLoading() {
+  document.getElementById('button-sorte').disabled = true;
   document.getElementById('loader').style.display = 'block';
 }
 
 function fecharLoading() {
+  document.getElementById('button-sorte').disabled = false;
   document.getElementById('loader').style.display = 'none';
 }
