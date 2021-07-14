@@ -13,75 +13,87 @@ window.onload = () => {
 }
 
 function buscarPokemon() {
+    mostrarLoading();
     esconderErro();
     let id = document.getElementById('pokemon-search').value;
 
-    if(id.length > 0 && id != 0) {
-        if (cookies.ultimoPokemon != id) {
-            if (cookies.obter(id) == null) {
-                pokeApi.buscarEspecifico(id)
-                .then(pokemon => {
-                    cookies.adicionar(pokemon);
-                    let poke = new Pokemon(pokemon);
-                    
+    setTimeout(() => {
+        if(id.length > 0 && id != 0) {
+            if (cookies.ultimoPokemon != id) {
+                if (cookies.obter(id) == null) {
+                    pokeApi.buscarEspecifico(id)
+                    .then(pokemon => {
+                        cookies.adicionar(pokemon);
+                        let poke = new Pokemon(pokemon);
+                        
+                        fecharLoading();
+                        organizarCard(0);
+                        limparListas();
+                        renderizar(poke);
+                        habilitarBotoes();
+                    })
+                    .catch(() => {
+                        fecharLoading();
+                        organizarCard(5);
+                        limparGeral();
+                        limparListas();
+                        exibirErro();
+                        desabilitarBotoes();
+                    });
+                } else {
+                    let poke = new Pokemon(cookies.obter(id));
+            
+                    fecharLoading();
                     organizarCard(0);
-                    limparListas();
                     renderizar(poke);
                     habilitarBotoes();
-                })
-                .catch(() => {
-                    organizarCard(5);
-                    limparGeral();
-                    limparListas();
-                    exibirErro();
-                    desabilitarBotoes();
-                });
-            } else {
-                let poke = new Pokemon(cookies.obter(id));
-        
-                organizarCard(0);
-                renderizar(poke);
-                habilitarBotoes();
+                }
             }
+        } else {
+            organizarCard(5);
+            limparGeral();
+            limparListas();
+            exibirErro();
+            desabilitarBotoes();
         }
-    } else {
-        organizarCard(5);
-        limparGeral();
-        limparListas();
-        exibirErro();
-        desabilitarBotoes();
-    }
+    }, 2000);
 }
 
 function buscarPokemonAleatorio() {
+    mostrarLoading();
     let id = gerarNumeroAleatorio();
 
-    if (cookies.obter(id) == null) {
-        limparListas();
-        document.getElementById('pokemon-search').value = id;
-
-        pokeApi.buscarEspecifico(id)
-        .then(pokemon => {
-            cookies.adicionar(pokemon)
-            let poke = new Pokemon(pokemon);
-            
+    setTimeout(() => {
+        if (cookies.obter(id) == null) {
+            limparListas();
+            document.getElementById('pokemon-search').value = id;
+    
+            pokeApi.buscarEspecifico(id)
+            .then(pokemon => {
+                cookies.adicionar(pokemon)
+                let poke = new Pokemon(pokemon);
+                
+                fecharLoading();
+                organizarCard(0);
+                renderizar(poke);
+                habilitarBotoes();
+            })
+            .catch(() => {
+                fecharLoading();
+                organizarCard(5);
+                limparGeral();
+                exibirErro();
+                desabilitarBotoes();
+            });
+        } else {
+            let poke = new Pokemon(cookies.obter(id));
+    
+            fecharLoading();
             organizarCard(0);
             renderizar(poke);
             habilitarBotoes();
-        })
-        .catch(() => {
-            organizarCard(5);
-            limparGeral();
-            exibirErro();
-            desabilitarBotoes();
-        });
-    } else {
-        let poke = new Pokemon(cookies.obter(id));
-
-        organizarCard(0);
-        renderizar(poke);
-        habilitarBotoes();
-    }
+        }
+    }, 2000);
 }
 
 renderizar = (pokemon) => {

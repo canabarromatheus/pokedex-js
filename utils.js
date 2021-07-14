@@ -9,3 +9,11 @@ function limparElemento(elemento) {
 function gerarNumeroAleatorio() {
   return parseInt(Math.random() * (894 - 1) + 1);
 }
+
+function mostrarLoading() {
+  document.getElementById('loader').style.display = 'block';
+}
+
+function fecharLoading() {
+  document.getElementById('loader').style.display = 'none';
+}
