@@ -2,13 +2,17 @@ let pokeApi = new PokeApi();
 const cookies = new Cookies;
 
 window.onload = () => {
+    mostrarLoading();
     if (cookies.verificarQuantidade() > 0) {
         let poke = new Pokemon(cookies.obter(cookies.ultimoPokemon));
         document.getElementById('pokemon-search').value = cookies.ultimoPokemon;
     
+        fecharLoading();
         organizarCard(0);
         renderizar(poke);
         habilitarBotoes();
+    } else {
+        fecharLoading();
     }
 }
 
