@@ -1,0 +1,49 @@
+.header {
+  width: 100%;
+  background: #fe0065;
+  padding: 15px;
+  border-bottom: 2px solid black;
+  box-sizing: border-box;
+}
+
+.header::after {
+    content: '';
+    display: block;
+    clear: both;
+    width: 100%;
+}
+
+.header #led-group {
+  display: inline-block;
+}
+
+.header nav {
+  text-align: center;
+  float: none;
+  box-sizing: border-box;
+}
+
+@media (min-width: 720px) {
+  .header {
+    width: 100%;
+    background: #fe0065;
+    padding: 15px;
+    border-bottom: 2px solid black;
+    box-sizing: border-box;
+  }
+
+  .header nav {
+    float: right;
+    box-sizing: border-box;
+  }
+
+  .header input {
+    display: inline-block;
+    margin: 0;
+  }
+}
+
+.header input {
+  display: inline-block;
+  margin: 15px 0;
+}

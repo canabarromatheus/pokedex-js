@@ -1,0 +1,69 @@
+.card-white {
+    height: 100%;
+    background-color: #FFF;
+    padding: 40px;
+    margin: 10px;
+    border-bottom-left-radius: 50px;
+    border: 2px solid black;
+    box-sizing: border-box;
+}
+
+.card-gray {
+    height: 425px;
+    font-size: 14px;
+    background-color: #585858;
+    margin: 30px 10px 10px 10px;
+    border-radius: 8px;
+    border: 2px solid black;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+@media (min-width: 720px) {
+    .card-white {
+        height: 500px;
+    }
+
+    .card-gray {
+        margin: 10px;
+    }
+}
+
+.card-gray > * {
+    margin: 15px;
+}
+
+.card-gray table {
+    border-collapse: collapse;
+}
+
+.card-gray table,
+.card-gray td,
+.card-gray th {
+    border: 2px solid white;
+    padding: 5px; 
+}
+
+.card-white .foreground-pokemon {
+    height: 100%;
+    background-color: #98cb98;
+    text-align: center;
+    border: 2px solid black;
+    box-sizing: border-box;
+}
+
+.foreground-pokemon img {
+    height: 90%;
+    box-sizing: border-box;
+}
+
+.info-error {
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-error[hidden] {
+    display: none;
+}

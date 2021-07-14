@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokedex | Matheus Canabarro</title>
+  <link rel="shortcut icon" href="./assets/img/pikachu_icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="./assets/css/general.css">
+  <link rel="stylesheet" href="./assets/css/grid.css">
+  <link rel="stylesheet" href="./assets/css/header.css">
+  <link rel="stylesheet" href="./assets/css/button.css">
+  <link rel="stylesheet" href="./assets/css/card.css">
+  <link rel="stylesheet" href="./assets/css/led.css">
+</head>
+<body>
+  <header class="header">
+    <div id="led-group">
+      <div class="led led-vermelho"></div>
+      <div class="led led-amarelo"></div>
+      <div class="led led-verde"></div>
+    </div>
+    <nav>
+      <input id="pokemon-search" type="search" placeholder="Insira o id do pokemón..." onfocusout="buscarPokemon()">
+      <button onclick="buscarPokemonAleatorio()" class="button button-azul">Estou com sorte</button>
+    </nav>
+  </header>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col col-12 col-lg-6">
+          <div class="card-white text-center">
+            <div class="foreground-pokemon">
+              <h2 id="pokemon-nome" class="text-gray"></h2>
+              <img id="pokemon-imagem" src="">
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col col-6 text-left">
+                  <div class="led led-vermelho led-md"></div>
+                </div>
+                <div class="col col-6 text-right">
+                  <img src="./assets/img/bars.svg" height="40px">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col col-12 col-lg-6">
+          <div class="container">
+            <div class="row">
+              <div class="col col-12">
+                <div class="card-gray">
+
+                  <div class="info-error" hidden>
+                    <h1>Digite um ID válido!</h1>
+                  </div>
+
+                  <div class="container">
+                    <div id="pokemon-informacao">
+                      <div class="info-geral" hidden>
+                        <div class="p-space">
+                          <b>Nome: </b><span id="pokemon-info-nome"></span>
+                        </div>
+                        <div class="p-space">
+                          <b>Altura: </b><span id="pokemon-info-altura"></span>
+                        </div>
+                        <div class="p-space">
+                          <b>Peso: </b><span id="pokemon-info-peso"></span>
+                        </div>
+                        <div class="p-space">
+                          <b>Tipo: </b>
+                        </div>
+                        <ul id="pokemon-info-tipos">
+                        </ul>
+                      </div>
+
+                      <div class="info-habilidades" hidden>
+                        <div class="p-space">
+                          <b>Habilidades: </b>
+                        </div>
+                        <ul id="pokemon-info-habilidades">
+                        </ul>
+                      </div>
+
+                      <div class="info-movimentos" hidden>
+                        <div class="p-space">
+                          <b>Movimentos: </b>
+                        </div>
+                        <ul id="pokemon-info-movimentos">
+                        </ul>
+                      </div>
+
+                      <div class="info-stats" hidden>
+                        <div class="p-space">
+                          <b>Status: </b>
+                        </div>
+                        <table>
+                          <thead>
+                            <tr>
+                              <th>Nome</th>
+                              <th>Status base</th>
+                              <th>Esforço</th>
+                            </tr>
+                          </thead>
+                          <tbody id="pokemon-info-stats">
+
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col col-12">
+                <div class="button-group">
+                  <button onclick="organizarCard(0)" class="button button-azul" disabled>Geral</button>
+                  <button onclick="organizarCard(1)" class="button button-azul" disabled>Habilidades</button>
+                  <button onclick="organizarCard(2)" class="button button-azul" disabled>Movimentos</button>
+                  <button onclick="organizarCard(3)" class="button button-azul" disabled>Status</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="./localStorage.js"></script>
+  <script src="./api.js"></script>
+  <script src="./utils.js"></script>
+  <script src="./pokemon.js"></script>
+  <script src="./index.js"></script>
+</body>
+</html>

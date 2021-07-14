@@ -1,0 +1,57 @@
+.led {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #3c4043;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.led-vermelho {
+  background-color: red;
+}
+
+.led-amarelo {
+  background-color: yellow;
+}
+
+.led-verde {
+  background-color: green;
+}
+
+.led-md {
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+}
+
+@media (min-width: 720px) {
+  .led {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #3c4043;
+    box-sizing: border-box;
+    margin-top: 20px;
+  }
+
+  .led-vermelho {
+    background-color: red;
+  }
+
+  .led-amarelo {
+    background-color: yellow;
+  }
+
+  .led-verde {
+    background-color: green;
+  }
+
+  .led-md {
+      width: 20px;
+      height: 20px;
+      margin-top: 10px;
+  }
+}

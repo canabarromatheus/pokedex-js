@@ -1,0 +1,42 @@
+.button {
+  padding: 8px 6px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.button-azul {
+  color: white;
+  background-color: #85bdfe;
+  border-radius: 4px;
+}
+
+.button-azul:hover {
+  background-color: #6baffc;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.button-group .button {
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.button-group .button:not(:last-child) {
+  border-right: none;
+}
+
+@media (min-width: 720px) {
+  .button-group {
+    margin-bottom: 0;
+  }
+
+  .button-group .button {
+    padding: 25px;
+  }
+}

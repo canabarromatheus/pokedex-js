@@ -1,0 +1,48 @@
+@font-face {
+  font-family: 'PressStart';
+  src: url('../fonts/PressStart.ttf');
+}
+
+body,
+ul {
+  margin: 0;
+}
+
+body {
+  font-family: 'PressStart';
+  font-size: 10px;
+  color: white;
+  background-color: #fe0065;
+}
+
+a {
+  color: #3c4043;
+  text-decoration: none;
+}
+
+input {
+  width: 275px;
+  font-family: 'PressStart';
+  /* font-size: 10px; */
+  color: white;
+  background-color: #585858;
+  border: 2px solid black;
+  border-radius: 3px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: none;
+}
+
+::placeholder {
+  color: white;
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+button {
+  font-family: 'PressStart';
+  font-size: 10px;
+}
